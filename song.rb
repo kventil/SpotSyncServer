@@ -11,7 +11,7 @@ class Song
   end
 
   def to_json
-  	JSON.generate [{"uri"=>@uri,"set"=>@set}]
+  	JSON.generate [{:uri=>@uri,:set=>@set}]
   end
 end
 
