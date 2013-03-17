@@ -1,22 +1,11 @@
 require 'sinatra'
-
-class Song
-	attr_accessor :uri
-	attr_accessor :set
-	
-	def initialize(uri = "empty")
-	  @uri =  uri
-	  @set =  Time.now.getutc
-  end
-end
-
+require './song.rb'
 
 
 current_song = Song.new
 
 get '/*/get' do 
-	"#{current_song.uri} 
-	#{current_song.set}"
+	current_song.to_json
 end
 
 
