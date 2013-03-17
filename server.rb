@@ -3,7 +3,7 @@ require 'net/http'
 require './song.rb'
 
 
-current_song = Song.new
+$current_song = Song.new
 
 
 def setSong(spotify_uri)
@@ -24,7 +24,7 @@ def setSong(spotify_uri)
 			out = "#{out} #{artist["name"]}"
 		end
 		out = "#{out} (#{song["track"]["length"]})"
-		current_song = Song.new(spotify_uri)
+		$current_song = Song.new(spotify_uri)
   		out = "New song is set to: #{out} :-)"
   	end
   	out
@@ -40,7 +40,7 @@ Song: <input type="text" name="uri">
 
 
 get '/*/get' do 
-	current_song.to_json
+	$current_song.to_json
 end
 
 #direct uri-call
