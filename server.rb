@@ -12,20 +12,14 @@ def setSong(spotify_uri)
 	end
 
 	uri = URI("http://ws.spotify.com/lookup/1/.json?uri=#{spotify_uri}")
-	out = "Not a valid song-uri :("
+	out = 404 #bad country
 
 	#fetch song-details 
 	response = Net::HTTP.get(uri)
 	unless response == ""
-		song = JSON.parse(response)
-		out = "#{song["track"]["name"]} by "
-		song["track"]["artists"].each do |artist|
-			out = "#{out} #{artist["name"]}"
-		end
-		out = "#{out} (#{song["track"]["length"]})"
-		#song set
-		$current_song = Song.new(spotify_uri)
-  		out = "New song is set to: #{out} :-)"
+		song_info = JSON.parse(response)
+		$current_song = Song.new(spotify_uri,song_info)
+  		out = 200 #new song :D
   	end
   	out
  end
@@ -59,10 +53,5 @@ end
 
 #interfacepost
 post '/form/set' do
-	spotify_uri = params[:uri]
-	"#{setSong(spotify_uri)} <br> #{submit_form}"
-end
-
-post '/test' do
-  puts params # outputs {"info"=>"some_info"} in the console
+	setSong(params[:uri])
 end

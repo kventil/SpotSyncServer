@@ -15,14 +15,16 @@
     $(".button").click(function() {
       var spotify_uri = $("input#uri").val();  
  	  var dataString = 'uri='+ spotify_uri
- 	  
- 	    $.ajax({
-    type: "POST",
-    url: "form/set",
-    data: dataString,
-    success: function() {
-      //display message back to user here
-    }
+ 	  $.ajax({
+    	type: "POST",
+    	url: "form/set",
+    	data: dataString,
+    	success: function(){
+   			 alert('Song set :D');
+  			},
+  		error: function(){
+    		alert('I\'m afraid I can\'t let you do that, Dave!');
+  		}
   });
   return false;
   
