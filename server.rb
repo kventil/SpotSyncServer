@@ -12,27 +12,26 @@ def setSong(spotify_uri)
 	end
 
 	uri = URI("http://ws.spotify.com/lookup/1/.json?uri=#{spotify_uri}")
-	out = "Not a valid Song. Sorry :-( "
+	out = 403
 	
 	#fetch song-details 
 	response = Net::HTTP.get(uri)
 	unless response == ""
 		song_info = JSON.parse(response)
 		$current_song = Song.new(spotify_uri,song_info)
-  		out = "Partying now to: #{$current_song.to_s}"
+  		out = 200
   	end
   	out
  end
 
 
-get '/*/get' do 
+get '/*/get' do
 	$current_song.to_json
 end
 
-#direct uri-call
+#direct uri-call - returns 200 on sucess and 403 on error
 get '/*/set/:uri' do
-	spotify_uri = params[:uri]
-	setSong(spotify_uri)
+	setSong(params[:uri])
 end
 
 
@@ -42,7 +41,11 @@ get '/' do
   File.read(File.join('public', 'index.html'))
 end
 
-#interfacepost
+#Wrapper fuers webinterface
 post '/form/set' do
-	setSong(params[:uri])
+	out = "Not a valid Song. Sorry :-("
+	unless setSong(params[:uri]) == 403
+		out = "Partying now to: #{$current_song.to_s}"
+	end
+	out
 end
