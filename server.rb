@@ -49,3 +49,24 @@ post '/form/set' do
 	end
 	out
 end
+
+#returns the current playing song
+#nothing if the time betweet set is > than set+songlength
+get '*/current_song' do
+	now = Time.now.to_i
+	if $current_song.set + $current_song.length > now
+		"#{$current_song.to_s} - #{now - $current_song.set} / #{$current_song.length}"
+	else
+		"empty"
+	end
+end
+
+get '*/remaining' do
+ now = Time.now.to_i
+ remaining  = ($current_song.set + $current_song.length) - now
+ unless 0 > remaining 
+ 	"#{remaining.to_i}"
+ else
+ 	"0"
+ end
+end
