@@ -53,11 +53,16 @@ end
 
 #interface-call
 get '/' do
- submit_form
+# return static startpage
+  File.read(File.join('public', 'index.html'))
 end
 
 #interfacepost
 post '/form/set' do
 	spotify_uri = params[:uri]
 	"#{setSong(spotify_uri)} <br> #{submit_form}"
+end
+
+post '/test' do
+  pp params # outputs {"info"=>"some_info"} in the console
 end

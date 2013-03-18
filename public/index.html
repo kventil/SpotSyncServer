@@ -9,6 +9,39 @@
 
 <!--Scripts-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    $(".button").click(function() {
+      // validate and process form here
+    });
+  });
+  </script>
+  
+
+
+<script type="text/javascript">
+	var spotify_uri = $("uriform#uri").val();  
+ 	var dataString = 'uri='+ spotify_uri
+  //alert (dataString);return false;
+  $.ajax({
+    type: "POST",
+    url: "/form/set",
+    data: dataString,
+    success: function() {
+      $('#contact_form').html("<div id='message'></div>");
+      $('#message').html("<h2>Contact Form Submitted!</h2>")
+      .append("<p>We will be in touch soon.</p>")
+      .hide()
+      .fadeIn(1500, function() {
+        $('#message').append("<img id='checkmark' src='images/check.png' />");
+      });
+    }
+  });
+  return false;
+
+</script>
+
 <!--Sliding icons-->
 <script type="text/javascript">
 $(document).ready(function() {
@@ -42,7 +75,7 @@ $(document).ready(function() {
     <!--END Sliding icons-->
 
 <!--login form inputs-->
-<form name="login-form" class="login-form" action="/form/set" method="post">
+<form name="uriform" class="login-form" action="" >
 
 	<!--Header-->
     <div class="header">
@@ -57,7 +90,6 @@ $(document).ready(function() {
   
     </div>
     <!--END Input fields-->
-    
     <!--Buttons-->
     <div class="footer">
     <!--Login button--><input type="submit" name="submit" value="PLAY" class="button" /><!--END Login button-->
@@ -69,7 +101,7 @@ $(document).ready(function() {
 
 </div>
 
-<!--bg gradient--><div class="gradient"></div><!--END bg gradient-->
+<div class="gradient"></div>
 
 </body>
 </html>
