@@ -10,6 +10,7 @@
 <!--Scripts-->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
+<!-- Submit without refresh -->
 <script type="text/javascript">
   $(function() {
     $(".button").click(function() {
@@ -20,10 +21,11 @@
     	url: "form/set",
     	data: dataString,
     	success: function(){
-   			 alert('Song set :D');
+        //song_info
+        $('div.feedback').html('Song set :D');
   			},
   		error: function(){
-    		alert('I\'m afraid I can\'t let you do that, Dave!');
+    		$('div.feedback').html('Something went wrong :/');
   		}
   });
   return false;
@@ -73,7 +75,7 @@ $(document).ready(function() {
     <!--END Sliding icons-->
 
 <!--login form inputs-->
-<form name="uriform" class="login-form" action="" >
+<form name="uriform" class="uri-form" action="" >
 
 	<!--Header-->
     <div class="header">
@@ -85,7 +87,7 @@ $(document).ready(function() {
 	<!--Input fields-->
     <div class="content">
 	<!--USERNAME--><input name="uri" id="uri" type="text" class="input username" placeholder="Spotify-URI goes here" /><!--END USERNAME-->
-  
+    <div class="feedback">Nothing at the moment</div>
     </div>
     <!--END Input fields-->
     <!--Buttons-->

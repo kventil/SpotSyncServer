@@ -25,15 +25,6 @@ def setSong(spotify_uri)
  end
 
 
- def submit_form
- 	'
- 	<form name="input" action="/form/set" method="post">
-	Gimme a new Song: <input type="text" name="uri">
-	<input type="submit" value="Submit">
-	</form>'
- end
-
-
 get '/*/get' do 
 	$current_song.to_json
 end

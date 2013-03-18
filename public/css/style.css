@@ -93,7 +93,7 @@ body {
 LOGIN FORM
 *******************/
 
-.login-form {
+.uri-form {
 	width: 300px;
 	margin: 0 auto;
 	position: relative;
@@ -112,11 +112,11 @@ LOGIN FORM
 HEADER
 *******************/
 
-.login-form .header {
+.uri-form .header {
 	padding: 40px 30px 30px 30px;
 }
 
-.login-form .header h1 {
+.uri-form .header h1 {
 	font-family: 'Bree Serif', serif;
 	font-weight: 300;
 	font-size: 28px;
@@ -126,7 +126,7 @@ HEADER
 	margin-bottom: 10px;
 }
 
-.login-form .header span {
+.uri-form .header span {
 	font-size: 11px;
 	line-height: 16px;
 	color: #678889;
@@ -137,12 +137,15 @@ HEADER
 CONTENT
 *******************/
 
-.login-form .content {
+.uri-form .content {
 	padding: 0 30px 25px 30px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
 }
 
 /* Input field */
-.login-form .content .input {
+.uri-form .content .input {
 	width: 188px;
 	padding: 15px 25px;
 	
@@ -161,17 +164,28 @@ CONTENT
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
 }
 
+.feedback {
+	width: 188px;
+	padding: 15px 25px;*/
+	
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+}
+
 /* Second input field */
-.login-form .content .password, .login-form .content .pass-icon {
+.uri-form .content .password, .uri-form .content .pass-icon {
 	margin-top: 25px;
 }
 
-.login-form .content .input:hover {
+.uri-form .content .input:hover {
 	background: #dfe9ec;
 	color: #414848;
 }
 
-.login-form .content .input:focus {
+.uri-form .content .input:focus {
 	background: #dfe9ec;
 	color: #414848;
 	
@@ -220,7 +234,7 @@ CONTENT
 FOOTER
 *******************/
 
-.login-form .footer {
+.uri-form .footer {
 	padding: 25px 30px 40px 30px;
 	overflow: auto;
 	
@@ -233,7 +247,7 @@ FOOTER
 }
 
 /* Login button */
-.login-form .footer .button {
+.uri-form .footer .button {
 	float:right;
 	padding: 11px 25px;
 	
@@ -253,7 +267,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
 
-.login-form .footer .button:hover {
+.uri-form .footer .button:hover {
 	background: #3f9db8;
 	border: 1px solid rgba(256,256,256,0.75);
 	
@@ -262,7 +276,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.login-form .footer .button:focus {
+.uri-form .footer .button:focus {
 	position: relative;
 	bottom: -1px;
 	
@@ -274,7 +288,7 @@ FOOTER
 }
 
 /* Register button */
-.login-form .footer .register {
+.uri-form .footer .register {
 	display: block;
 	float: right;
 	padding: 10px;
@@ -291,11 +305,11 @@ FOOTER
 	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
 }
 
-.login-form .footer .register:hover {
+.uri-form .footer .register:hover {
 	color: #3f9db8;
 }
 
-.login-form .footer .register:focus {
+.uri-form .footer .register:focus {
 	position: relative;
 	bottom: -1px;
 }
