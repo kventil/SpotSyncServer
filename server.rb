@@ -11,7 +11,6 @@ def setSong(spotify_uri)
 		spotify_uri['http://open.spotify.com/track/'] = "spotify:track:"
 	end
 
-
 	uri = URI("http://ws.spotify.com/lookup/1/.json?uri=#{spotify_uri}")
 	out = "Not a valid song-uri :("
 
@@ -24,6 +23,7 @@ def setSong(spotify_uri)
 			out = "#{out} #{artist["name"]}"
 		end
 		out = "#{out} (#{song["track"]["length"]})"
+		#song set
 		$current_song = Song.new(spotify_uri)
   		out = "New song is set to: #{out} :-)"
   	end
@@ -32,10 +32,11 @@ def setSong(spotify_uri)
 
 
  def submit_form
- 	'<form name="input" action="/form/set" method="post">
-Song: <input type="text" name="uri">
-<input type="submit" value="Submit">
-</form>'
+ 	'
+ 	<form name="input" action="/form/set" method="post">
+	Gimme a new Song: <input type="text" name="uri">
+	<input type="submit" value="Submit">
+	</form>'
  end
 
 
