@@ -64,5 +64,5 @@ post '/form/set' do
 end
 
 post '/test' do
-  pp params # outputs {"info"=>"some_info"} in the console
+  puts params # outputs {"info"=>"some_info"} in the console
 end

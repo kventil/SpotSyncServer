@@ -13,7 +13,19 @@
 <script type="text/javascript">
   $(function() {
     $(".button").click(function() {
-      // validate and process form here
+      var spotify_uri = $("input#uri").val();  
+ 	  var dataString = 'uri='+ spotify_uri
+ 	  
+ 	    $.ajax({
+    type: "POST",
+    url: "form/set",
+    data: dataString,
+    success: function() {
+      //display message back to user here
+    }
+  });
+  return false;
+  
     });
   });
   </script>
@@ -21,23 +33,7 @@
 
 
 <script type="text/javascript">
-	var spotify_uri = $("uriform#uri").val();  
- 	var dataString = 'uri='+ spotify_uri
-  //alert (dataString);return false;
-  $.ajax({
-    type: "POST",
-    url: "/form/set",
-    data: dataString,
-    success: function() {
-      $('#contact_form').html("<div id='message'></div>");
-      $('#message').html("<h2>Contact Form Submitted!</h2>")
-      .append("<p>We will be in touch soon.</p>")
-      .hide()
-      .fadeIn(1500, function() {
-        $('#message').append("<img id='checkmark' src='images/check.png' />");
-      });
-    }
-  });
+	
   return false;
 
 </script>
@@ -86,7 +82,7 @@ $(document).ready(function() {
 	
 	<!--Input fields-->
     <div class="content">
-	<!--USERNAME--><input name="uri" type="text" class="input username" placeholder="Spotify-URI goes here" /><!--END USERNAME-->
+	<!--USERNAME--><input name="uri" id="uri" type="text" class="input username" placeholder="Spotify-URI goes here" /><!--END USERNAME-->
   
     </div>
     <!--END Input fields-->
