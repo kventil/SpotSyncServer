@@ -14,19 +14,16 @@
 <script type="text/javascript">
   $(function() {
     $(".button").click(function() {
-      var spotify_uri = $("input#uri").val();  
+    var spotify_uri = $("input#uri").val();  
  	  var dataString = 'uri='+ spotify_uri
  	  $.ajax({
     	type: "POST",
     	url: "form/set",
     	data: dataString,
-    	success: function(){
+    	success: function(data){
         //song_info
-        $('div.feedback').html('Song set :D');
-  			},
-  		error: function(){
-    		$('div.feedback').html('Something went wrong :/');
-  		}
+        $('div.feedback').html(data);
+  			}  		
   });
   return false;
   
@@ -86,7 +83,7 @@ $(document).ready(function() {
 	
 	<!--Input fields-->
     <div class="content">
-	<!--USERNAME--><input name="uri" id="uri" type="text" class="input username" placeholder="Spotify-URI goes here" /><!--END USERNAME-->
+	<!--USERNAME--><input name="uri" id="uri" type="text" class="input uri" placeholder="Spotify-URI goes here" /><!--END USERNAME-->
     <div class="feedback">Nothing at the moment</div>
     </div>
     <!--END Input fields-->

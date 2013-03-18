@@ -12,14 +12,14 @@ def setSong(spotify_uri)
 	end
 
 	uri = URI("http://ws.spotify.com/lookup/1/.json?uri=#{spotify_uri}")
-	out = 404 #bad country
-
+	out = "Not a valid Song. Sorry :-( "
+	
 	#fetch song-details 
 	response = Net::HTTP.get(uri)
 	unless response == ""
 		song_info = JSON.parse(response)
 		$current_song = Song.new(spotify_uri,song_info)
-  		out = 200 #new song :D
+  		out = "Partying now to: #{$current_song.to_s}"
   	end
   	out
  end

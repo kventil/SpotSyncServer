@@ -1,6 +1,5 @@
 require 'json'
 
-
 class Song
 	attr_accessor :uri
 	attr_accessor :set
@@ -15,6 +14,20 @@ class Song
   def to_json
   	JSON.generate [{:uri=>@uri,:set=>@set,:info=>@info}]
   end
+
+  def length
+  	@info["track"]["length"]
+  end
+
+  def name
+  	@info["track"]["name"]
+  end
+
+  def artists 
+  	@info["track"]["artists"]
+  end
+
+  def to_s
+  	"#{self.name} by #{self.artists[0]["name"]}"
+  end
 end
-
-
