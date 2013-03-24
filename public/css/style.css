@@ -2,7 +2,7 @@
 FONTS
 *******************/
 
-@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+/*@import url(http://fonts.googleapis.com/css?family=Bree+Serif);*/
 
 /*******************
 SELECTION STYLING
@@ -28,7 +28,7 @@ BODY STYLING
 }
 html{
       height: 100%;
-      background: url('../images/dots.png') center center fixed, url('http://www.kv0.org/syncify/rotate.php') center center no-repeat fixed #252326;
+      /*background: url('../images/dots.png') center center fixed, url('http://www.kv0.org/syncify/rotate.php') center center no-repeat fixed #252326;*/
       -webkit-background-size: auto, cover;
       -moz-background-size: auto, cover;
       -o-background-size: auto, cover;
